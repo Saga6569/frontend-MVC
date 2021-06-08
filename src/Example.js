@@ -4,9 +4,14 @@ export default class Example {
   }
 
   init() {
-    this.element.innerHTML = `<form method="post">
-    <input name="url" value="http://reqres.in">
-    <input type="submit" value="add">
+    this.element.innerHTML = `<div class="container">
+    <div class="row">
+      <div class="col">
+      <form method="post">
+      <input name="url" value="http://reqres.in">
+      <input type="submit" value="add"></input>
+      </div>
+    </div>
     <div class="contener Eror">
     </div>
     </form>

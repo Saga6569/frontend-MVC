@@ -25,9 +25,7 @@ export default () => {
 
   // @ts-ignore
   const watchedState = onChange(state, async (path, value) => {
-    console.log('сработала прослушка');
     if (state.registrationForm.SuccessfulAdded.includes(value)) {
-      console.log('такая ссылка уже есть');
       state.registrationForm.state = 'invalid';
       // @ts-ignore
       state.registrationForm.errors = { message: 'such a back has already been performed' };
@@ -36,7 +34,6 @@ export default () => {
     }
     const valide = await schema.isValid({ url: value });
     if (valide) {
-      console.log('ссылка валидна');
       const work = await working(state.registrationForm.url);
       if (work !== 200) {
         state.registrationForm.state = 'invalid';
@@ -52,13 +49,11 @@ export default () => {
       state.registrationForm.errors = err;
     });
     state.registrationForm.state = 'invalid';
-    console.log('конец прослушки, ошибка валидации');
     render(state);
   });
 
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('сработало событие');
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
     watchedState.registrationForm.url = data.url;
