@@ -10,7 +10,7 @@ const render = async (state) => {
       document.querySelector('.contener').textContent = state.registrationForm.errors.message;
       state.registrationForm.url = '';
       break;
-    case 'valide':
+    case 'No mistakes':
       document.querySelector('.contener').textContent = '';
       state.registrationForm.SuccessfulAdded.push(state.registrationForm.url);
       const table = document.createElement('tr');

@@ -24,7 +24,7 @@ export default () => {
   obj.init();
 
   const watchedState = onChange(state, async (path, value) => {
-    if (state.path.includes(value)) {
+    if (state.registrationForm.SuccessfulAdded.includes(value)) {
       state.registrationForm.state = 'Error';
       state.registrationForm.errors = { message: 'such a back has already been performed' };
       render(state);
