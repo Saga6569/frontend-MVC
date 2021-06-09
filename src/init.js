@@ -2,7 +2,7 @@
 import onChange from 'on-change';
 import * as yup from 'yup';
 import Example from './Example.js';
-import working from './isWorking.js';
+import working from './working.js';
 import render from './render.js';
 
 export default () => {
