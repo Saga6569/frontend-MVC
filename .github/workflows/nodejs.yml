@@ -45,8 +45,8 @@ jobs:
         # https://github.com/paambaati/codeclimate-action
         uses: paambaati/codeclimate-action@v2.7.4
         # Add Code Climate secret key
-        env:
-          MVC_S_S : ${{ secrets.MVC_S_S }}
+        # env:
+        #   MVC_S_S : ${{ secrets.MVC_S_S }}
         with:
           coverageCommand: make test-coverage
           debug: true
