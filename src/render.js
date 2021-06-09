@@ -6,7 +6,7 @@ let count = 1;
 const render = async (state) => {
   const status = state.registrationForm.state;
   switch (status) {
-    case 'invalid':
+    case 'Error':
       document.querySelector('.contener').textContent = state.registrationForm.errors.message;
       state.registrationForm.url = '';
       break;
