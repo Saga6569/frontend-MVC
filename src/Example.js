@@ -6,6 +6,7 @@ export default class Example {
   init() {
     this.element.innerHTML = `<div class="container">
     <div class="row">
+    принимает https запросы
       <div class="col">
       <form method="post">
       <input name="url" value="http://reqres.in">
