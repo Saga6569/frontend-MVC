@@ -1,6 +1,5 @@
-/* eslint-disable no-param-reassign */
 /* eslint-disable no-case-declarations */
-/* eslint-disable no-undef */
+/* eslint-disable no-param-reassign */
 let count = 1;
 
 const render = async (state) => {

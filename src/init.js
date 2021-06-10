@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import onChange from 'on-change';
 import * as yup from 'yup';
 import Example from './Example.js';
