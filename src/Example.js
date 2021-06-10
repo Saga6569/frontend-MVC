@@ -9,7 +9,7 @@ export default class Example {
     принимает https запросы
       <div class="col">
       <form method="post">
-      <input name="url" value="http://reqres.in">
+      <input name="url" value="https://reqres.in">
       <input type="submit" value="add"></input>
       </div>
     </div>
