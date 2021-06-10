@@ -1,7 +1,6 @@
 import { test, expect } from '@jest/globals';
 import { promises as fs } from 'fs';
 import path from 'path';
-import working from '../src/working';
 import init from '../src/init';
 
 beforeEach(async () => {
@@ -13,10 +12,4 @@ beforeEach(async () => {
 test('init', () => {
   init();
   expect(true).toBeDefined();
-});
-
-test('working', async () => {
-  const url = 'http://jsonplaceholder.typicode.com';
-  const ok = await working(url);
-  expect(ok).toBe(200);
 });
