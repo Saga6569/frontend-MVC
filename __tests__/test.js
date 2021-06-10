@@ -2,6 +2,7 @@ import { test, expect } from '@jest/globals';
 import { promises as fs } from 'fs';
 import path from 'path';
 import init from '../src/init';
+// import render from '../src/render.js';
 
 beforeEach(async () => {
   const pathToHtml = path.resolve(__dirname, '__fixtures__/index.html');
@@ -11,5 +12,10 @@ beforeEach(async () => {
 
 test('init', () => {
   init();
+  expect(true).toBeDefined();
+});
+
+test('app', () => {
+  console.log(document.body.innerHTML);
   expect(true).toBeDefined();
 });

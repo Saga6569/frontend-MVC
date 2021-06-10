@@ -8,7 +8,6 @@ export default () => {
   const schema = yup.object().shape({
     url: yup.string().url(),
   });
-
   const state = {
     registrationForm: {
       state: 'invalid',
@@ -17,11 +16,9 @@ export default () => {
       errors: [],
     },
   };
-
   const element = document.getElementById('point');
   const obj = new Example(element);
   obj.init();
-
   const watchedState = onChange(state, async (path, value) => {
     if (state.registrationForm.SuccessfulAdded.includes(value)) {
       state.registrationForm.state = 'Error';
@@ -29,26 +26,16 @@ export default () => {
       render(state);
       return;
     }
-    const valide = await schema.isValid({ url: value });
-    if (!valide) {
-      await schema.validate({ url: value }).catch((err) => {
-        state.registrationForm.errors = err;
-      });
-      state.registrationForm.state = 'Error';
-      render(state);
-      return;
-    }
-
     try {
+      await schema.validate({ url: value });
       await axios.get(state.registrationForm.url);
       state.registrationForm.state = 'No mistakes';
     } catch (error) {
-      state.registrationForm.state = 'Error';
       state.registrationForm.errors = error;
+      state.registrationForm.state = 'Error';
     }
     render(state);
   });
-
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
