@@ -1,7 +1,7 @@
 import onChange from 'on-change';
 import * as yup from 'yup';
+import axios from 'axios';
 import Example from './Example.js';
-import working from './working.js';
 import render from './render.js';
 
 export default () => {
@@ -38,14 +38,14 @@ export default () => {
       render(state);
       return;
     }
-    const work = await working(state.registrationForm.url);
-    if (work !== 200) {
+
+    try {
+      await axios.get(state.registrationForm.url);
+      state.registrationForm.state = 'No mistakes';
+    } catch (error) {
       state.registrationForm.state = 'Error';
-      state.registrationForm.errors = work;
-      render(state);
-      return;
+      state.registrationForm.errors = error;
     }
-    state.registrationForm.state = 'No mistakes';
     render(state);
   });
 
