@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { test, expect } from '@jest/globals';
 import { promises as fs } from 'fs';
 import path from 'path';
